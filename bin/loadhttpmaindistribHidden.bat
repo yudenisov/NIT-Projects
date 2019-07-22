@@ -36,15 +36,15 @@ rem HTTP Port
 rem set httpport=80
 
 rem run Load Distrib Scripts
-call %curdir%\URLLoadAdminPack.tmp.bat
+call "%curdir%\URLLoadAdminPack.tmp.bat"
 
 rem Run PreChocoInstall.bat
-if not exist %curdir%\prechocoinstall.bat goto pass_PreCHInstall
-call %curdir%\prechocoinstall.bat
+if not exist "%curdir%\prechocoinstall.bat" goto pass_PreCHInstall
+call "%curdir%\prechocoinstall.bat"
 :pass_PreCHInstall
 
 rem Запускаем инсталлятор Admin Pack "Экспонента"
-call %curdir%\InstallMainExponenta.bat %PUB1% %Hacker_host1% %AdminT% %Elevation% %Util%
+call "%curdir%\InstallMainExponenta.bat" %PUB1% %Hacker_host1% %AdminT% %Elevation% %Util%
 
 rem Удаляем временный каталог
 rd /S /Q WindowsPowerShell

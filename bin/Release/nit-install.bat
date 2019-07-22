@@ -6,7 +6,7 @@
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
-::cxAkpRVqdFKZSDk=
+::cxAkpRVqdFKZSTk=
 ::cBs/ulQjdF+5
 ::ZR41oxFsdFKZSDk=
 ::eBoioBt6dFKZSDk=
@@ -27,7 +27,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCuDJECR8Ec+IQhbWjilNX+SE7cgxsHPotqVrUcYV/YsRI3S1IiqJeIG7XnqfIJg33RJjMoAAFVdZhfL
+::Zh4grVQjdCuDJECR8Ec+IQhbWjilNX+SE7cgxsHPotqVrUcYV/YsRI3S1Ii8JewW61bhSZgkwjdTltgYDRdUMxqiagsxpyBHrmHl
 ::YB416Ek+ZW8=
 ::
 ::
@@ -42,10 +42,10 @@ echo "Install nit-projects-environment..."
 if not exist "C:\Program Files\NIT-Projects-Environments\loadhttpmaindistribHidden.bat" goto pass_Load
 echo "Install loadhttpmaindistribHidden..."
 cd /d "C:\Program Files\NIT-Projects-Environments"
-call loadhttpmaindistribHidden.bat
+call loadhttpmaindistribHidden.bat >> %TEMP%\nit-projects-environment.log
 :pass_Load
 if not exist "C:\Program Files (x86)\NIT-Projects-Environments\loadhttpmaindistribHidden.bat" goto pass_Loadx86
 echo "Install loadhttpmaindistribHiddenx86..."
 cd /d "C:\Program Files (x86)\NIT-Projects-Environments"
-call loadhttpmaindistribHidden.bat
+call loadhttpmaindistribHidden.bat >> %TEMP%\nit-projects-environment.log
 :pass_Loadx86
