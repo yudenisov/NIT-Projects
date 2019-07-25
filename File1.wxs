@@ -59,6 +59,9 @@
             <Component Id="Threads.Install.bat" Guid="{9380A22B-2C4D-4EBC-88FA-2956447DE17D}">
                 <File Id="Threads.Install.bat" Source="bin\Threads-Install.bat" KeyPath="yes" Checksum="no"/>
             </Component>
+            <Component Id="sordum.org.install.bat" Guid="{6E166D92-C748-44E6-B878-F2AC01358626}">
+                <File Id="sordum.org.install.bat" Source="bin\sordum.org.install.bat" KeyPath="yes" Checksum="no"/>
+            </Component>
             <Component Id="URLLoadAdminPack.tmp.bat" Guid="{1DC0AFEC-E9A2-4D1A-BB3F-803DE4BC2670}">
                 <File Id="URLLoadAdminPack.tmp.bat" Source="bin\URLLoadAdminPack.tmp.bat" KeyPath="yes" Checksum="yes"/>
             </Component>
@@ -90,6 +93,7 @@
             <ComponentRef Id="loadhttpmaindistribHidden.bat" />
             <ComponentRef Id="prechocoinstall.bat" />
             <ComponentRef Id="Threads.Install.bat" />
+            <ComponentRef Id="sordum.org.install.bat" />
             <ComponentRef Id="URLLoadAdminPack.tmp.bat" />
             <ComponentRef Id="UtilsInstall.bat" />
             <ComponentRef Id="wget.exe" />
@@ -98,21 +102,8 @@
 
     <UI>
       <UIRef Id="WixUI_Minimal" />
-      <!--      <Publish Dialog="ExitDialog"
-          Control="Finish"
-          Event="DoAction"
-          Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish> -->
+
     </UI>
-<!--    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch NIT-Projects-Environments" /> -->
-
-    <!-- Step 4: Include the custom action
-    <Property Id="WixShellExecTarget" Value="%SystemRoot%\system32\cmd.exe /k loadhttpmaindistribHidden.bat" />
-    <CustomAction Id="LaunchApplication"
-        BinaryKey="WixCA"
-        DllEntry="WixShellExec"
-        Impersonate="yes" />
-    <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONROOTDIRECTORY" /> -->
-
 
   </Product>
 </Wix>

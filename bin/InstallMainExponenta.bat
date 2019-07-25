@@ -57,7 +57,7 @@ Distrib\ExponentaMainFilesSetup.exe /VERYSILENT /NOCANCEL
 
 rem Install Duck Plugin
 if not exist duck-Install.bat goto pass_Duck
-call duck-Install.bat
+rem call duck-Install.bat
 :pass_Duck
 
 rem Install Hidden Start Plugin
@@ -72,7 +72,7 @@ call ElevationInstall.bat
 
 rem Install Utils...
 if not exist UtilsInstall.bat goto pass_Util
-call UtilsInstall.bat
+rem call UtilsInstall.bat
 :pass_Util
 
 rem Install AdminSet01...
@@ -87,8 +87,13 @@ call AdminTInstall.bat
 
 rem Instll Threads Plugin
 if not exist Threads-Install.bat goto pass_Threads
-call Threads-Install.bat
+rem call Threads-Install.bat
 :pass_Threads
+
+rem Instll sordum.org Utils
+if not exist sordum.org.install.bat goto pass_Sordum
+rem call sordum.org.install.bat
+:pass_Sordum
 
 rem Instll WSO Interface Plugin
 if not exist wsoinstall.bat goto pass_WSO
@@ -102,7 +107,7 @@ call InstallChocolateyPackets.bat
 
 rem Unpack KMS_Tools_Portable
 if not exist KMS-Portable-Unpack.bat goto pass_KMS
-call KMS-Portable-Unpack.bat
+rem call KMS-Portable-Unpack.bat
 :pass_KMS
 
 rem Refresh Environment
