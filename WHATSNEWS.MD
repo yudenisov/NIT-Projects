@@ -1,6 +1,14 @@
 WHAT NEWS
 ===========
 
+Version 1.0.1.0_beta
+---------------------
+
+- (Remove) Default Installation of Some Packets (for Security Reasons)
+- (Add) Some Packets Download
+- (Partially Fix) Packets Not Downloads without Redownloaded
+
+
 Version 1.0.0.0_beta
 ---------------------
 
