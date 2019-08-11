@@ -1,6 +1,11 @@
 WHAT NEWS
 ===========
 
+Version 1.0.2.0_beta
+---------------------
+
+- (Add) Online documentation at RTF and HTML
+
 Version 1.0.1.0_beta
 ---------------------
 
