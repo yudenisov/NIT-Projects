@@ -78,6 +78,12 @@
             <Component Id="user.guide.html" Guid="{FD3F3E8B-DF27-4B42-9F81-0BEC5E3688F3}">
                 <File Id="USER_GUIDE.HTML" Name="user-guide.html" Source="bin\user-guide.html" Checksum="no" KeyPath="yes" />
             </Component>
+            <Component Id="user.guide.pdf" Guid="949598E8-9C08-4CBC-A3A0-D578FD788B01">
+                <File Id="USER_GUIDE_PDF" Name="user-guide.pdf" Source="bin\user-guide.pdf" Checksum="yes" KeyPath="yes" />
+            </Component>
+            <Component Id="user.guide.chm" Guid="C72CEE5F-FFE5-46B3-9B75-C6BB72674CF8">
+                <File Id="USER_GUIDE_CHM" Name="user-guide.chm" Source="bin\user-guide.chm" Checksum="yes" KeyPath="yes" />
+            </Component>
         </DirectoryRef>
         <!-- Step 3: Tell WiX to install the files -->
         <Feature Id="MainApplication" Title="Main Application" Level="1">
@@ -103,6 +109,8 @@
             <ComponentRef Id="wsoinstall.bat" />
             <ComponentRef Id="user.guide.rtf" />
             <ComponentRef Id="user.guide.html" />
+            <ComponentRef Id="user.guide.pdf" />
+            <ComponentRef Id="user.guide.chm" />
         </Feature>
         <UI>
             <UIRef Id="WixUI_Minimal" />

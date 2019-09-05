@@ -1,6 +1,13 @@
 WHAT NEWS
 ===========
 
+Version 1.0.3.0_beta
+--------------------
+
+- (Add) Documentation at PDF and CHM format
+- (Modify) Order of download to renew curl and wget versions
+- (Fix) Addition modules is not downloaded
+
 Version 1.0.2.0_beta
 ---------------------
 
