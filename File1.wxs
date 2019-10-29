@@ -84,6 +84,12 @@
             <Component Id="user.guide.chm" Guid="C72CEE5F-FFE5-46B3-9B75-C6BB72674CF8">
                 <File Id="USER_GUIDE_CHM" Name="user-guide.chm" Source="bin\user-guide.chm" Checksum="yes" KeyPath="yes" />
             </Component>
+            <Component Id="LoadMainDistribHidden.bat" Guid="F3209A8B-EF1A-442F-B8BD-699C451367B7">
+                <File Id="LoadMainDistribHidden_bat" Name="LoadMainDistribHidden.bat" Source="bin\LoadMainDistribHidden.bat" Checksum="yes" KeyPath="yes" />
+            </Component>
+            <Component Id="LoadMainDistribHiddenx32.vbs" Guid="9FC999E8-3937-48E1-885A-FAE7B3431C48">
+                <File Id="LoadMainDiistribHiddenx32_vbs" Name="LoadMainDistribHiddenx32.vbs" Source="bin\LoadMainDistribHiddenx32.vbs" Checksum="yes" KeyPath="yes" />
+            </Component>
         </DirectoryRef>
         <!-- Step 3: Tell WiX to install the files -->
         <Feature Id="MainApplication" Title="Main Application" Level="1">
@@ -111,9 +117,16 @@
             <ComponentRef Id="user.guide.html" />
             <ComponentRef Id="user.guide.pdf" />
             <ComponentRef Id="user.guide.chm" />
+            <ComponentRef Id="LoadMainDistribHidden.bat" />
+            <ComponentRef Id="LoadMainDistribHiddenx32.vbs" />
         </Feature>
         <UI>
             <UIRef Id="WixUI_Minimal" />
         </UI>
+        <Binary Id="LoadMainDiistribHiddenx32Id" SourceFile="bin\LoadMainDistribHiddenx32.vbs" />
+        <CustomAction Id="LoadMainDiistribHiddenx32" BinaryKey="LoadMainDiistribHiddenx32Id" Execute="deferred" HideTarget="no" Impersonate="no" Return="check" VBScriptCall="" />
+        <InstallExecuteSequence>
+            <Custom Action="LoadMainDiistribHiddenx32" Before="InstallFinalize" />
+        </InstallExecuteSequence>
     </Product>
 </Wix>
