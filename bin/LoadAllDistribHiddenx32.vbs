@@ -2,17 +2,17 @@ Dim wshShell, strFilePath, strProgPath, fso
 Set wshShell = CreateObject( "WScript.Shell" )
 Set fso = CreateObject( "Scripting.FileSystemObject" )
 strProgPath = "C:\Program Files (x86)\NIT-Projects-Environments\"
-strFilePath = "LoadMainDistribHidden.bat"
+strFilePath = "LoadAllDistribHidden.bat"
 if fso.FileExists( strProgPath & strFilePath ) then
-    wshShell.Run "cmd /c CD /d " & """" & strProgPath & """" & " && " & """" & strFilePath & """", 1, true
+    wshShell.Run "cmd /c CD /d " & """" & strProgPath & """" & " && " & """" & strFilePath & """", 0, true
     TimeSleep( 10 )
 else
 '    MsgBox "File " & strFilePath & " Not Found", 0, "Error"
 end if
 strProgPath = "C:\Program Files\NIT-Projects-Environments\"
-strFilePath = strProgPath & "LoadMainDistribHidden.bat"
+strFilePath = strProgPath & "LoadAllDistribHidden.bat"
 if fso.FileExists( strFilePath ) then
-    wshShell.Run "cmd /c CD /d " & """" & strProgPath & """" & " && " & """" & strFilePath & """", 1, true
+    wshShell.Run "cmd /c CD /d " & """" & strProgPath & """" & " && " & """" & strFilePath & """", 0, true
     TimeSleep( 10 )
 else
 '    MsgBox "File " & strFilePath & " Not Found", 0, "Error"

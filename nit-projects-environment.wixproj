@@ -5,7 +5,7 @@
     <ProductVersion>3.0</ProductVersion>
     <ProjectGuid>{E38E18A1-D13A-49A5-9AE2-0DB257C87D91}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>nit-projects-environment</OutputName>
+    <OutputName>nit-projects-environment-ex</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
   </PropertyGroup>
@@ -30,7 +30,7 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="File1.wxs" />
+    <Compile Include="File2.wxs" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
 </Project>

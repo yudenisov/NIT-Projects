@@ -96,6 +96,15 @@
             <Component Id="InstallAll.bat" Guid="7966E780-0B23-44C3-BA52-6A78A7332911">
                 <File Name="InstallAll.bat" Source="bin\InstallAll.bat" Id="InstallAll_bat" KeyPath="yes" Checksum="yes" />
             </Component>
+            <Component Id="InstallAllExponenta.bat" Guid="5BE4E81E-E947-449D-98D5-E2E6CF734EBD">
+                <File Name="InstallAllExponenta.bat" Source="bin\InstallAllExponenta.bat" Id="InstallAllExponenta_bat" KeyPath="yes" Checksum="yes" />
+            </Component>
+            <Component Id="LoadAllDistribHidden.bat" Guid="C9907811-2566-4E23-B0E9-8CCA536267D5">
+                <File Name="LoadAllDistribHidden.bat" Source="bin\LoadAllDistribHidden.bat" Id="LoadAllDistribHidden_bat" KeyPath="yes" Checksum="yes" />
+            </Component>
+            <Component Id="LoadAllDistribHiddenx32.vbs" Guid="0AE7978D-33EA-441F-93D2-F92964544186">
+                <File Name="LoadAllDistribHiddenx32.vbs" Source="bin\LoadAllDistribHiddenx32.vbs" Id="LoadAllDistribHiddenx32_vbs" KeyPath="yes" Checksum="yes" />
+            </Component>
         </DirectoryRef>
         <!-- Step 3: Tell WiX to install the files -->
         <Feature Id="MainApplication" Title="Main Application" Level="1">
@@ -127,14 +136,12 @@
             <ComponentRef Id="LoadMainDistribHiddenx32.vbs" />
             <ComponentRef Id="pwshcore_install.bat" />
             <ComponentRef Id="InstallAll.bat" />
+            <ComponentRef Id="InstallAllExponenta.bat" />
+            <ComponentRef Id="LoadAllDistribHidden.bat" />
+            <ComponentRef Id="LoadAllDistribHiddenx32.vbs" />
         </Feature>
         <UI>
             <UIRef Id="WixUI_Minimal" />
         </UI>
-        <Binary Id="LoadMainDiistribHiddenx32Id" SourceFile="bin\LoadMainDistribHiddenx32.vbs" />
-        <CustomAction Id="LoadMainDiistribHiddenx32" BinaryKey="LoadMainDiistribHiddenx32Id" Execute="deferred" HideTarget="no" Impersonate="no" Return="check" VBScriptCall="" />
-        <InstallExecuteSequence>
-            <Custom Action="LoadMainDiistribHiddenx32" Before="InstallFinalize" />
-        </InstallExecuteSequence>
     </Product>
 </Wix>
