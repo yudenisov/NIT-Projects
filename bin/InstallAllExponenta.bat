@@ -98,7 +98,7 @@ call AdminSet01Install.bat
 
 rem Instll Threads Plugin
 if not exist Threads-Install.bat goto pass_Threads
-call Threads-Install.bat
+rem call Threads-Install.bat
 :pass_Threads
 
 rem Instll sordum.org Utils
@@ -113,17 +113,17 @@ call wsoinstall.bat
 
 rem Install Java Packet
 if not exist java-install.bat goto pass_java
-call java-install.bat
+rem call java-install.bat
 :pass_java
 
 rem Install Powershell Core Packet
 if not exist pwshcore-install.bat goto pass_pwsh
-call pwshcore-install.bat
+rem call pwshcore-install.bat
 :pass_pwsh
 
 rem Unpack KMS_Tools_Portable
 if not exist KMS-Portable-Unpack.bat goto pass_KMS
-call KMS-Portable-Unpack.bat
+rem call KMS-Portable-Unpack.bat
 :pass_KMS
 
 rem Refresh Environment

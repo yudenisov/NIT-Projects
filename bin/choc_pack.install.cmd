@@ -7,7 +7,7 @@ rem Check if Chocolatey is Installed
 if not exist %Chocolatey% goto ch_not_installed
 echo "Install Chocolatey Packets..."
 %Chocolatey%\bin\choco.exe install -y --force --ignore-checksums sysinternals
-%Chocolatey%\bin\choco.exe install -y --force --ignore-checksums duck
+rem %Chocolatey%\bin\choco.exe install -y --force --ignore-checksums duck
 %Chocolatey%\bin\choco.exe install -y --force --ignore-checksums 7Zip.install
 %Chocolatey%\bin\choco.exe install -y --force --ignore-checksums 7zip
 %Chocolatey%\bin\choco.exe install -y --force --ignore-checksums 7zip.portable
