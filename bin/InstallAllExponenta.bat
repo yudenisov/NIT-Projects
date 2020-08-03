@@ -50,12 +50,6 @@ rem %SystemRoot%\System32\reg.exe Add "!Key!" /v Hacker_host1 /t REG_SZ /d "!Hac
 
 cd /d %curdir%
 
-rem Install Certificates Files...
-if not exist Certificates-install.bat goto UnSuccess_Certificates
-echo "Install Certificates..."
-call Certificates-install.bat
-:UnSuccess_Certificates
-
 rem Install MainExponenta Files...
 if not exist Distrib\ExponentaMainFilesSetup.exe goto UnSuccess
 echo "Install Main Exponenta files..."
@@ -83,12 +77,12 @@ call InstallChocolateyPackets.bat
 
 rem Install Duck Plugin
 if not exist duck-Install.bat goto pass_Duck
-call duck-Install.bat
+rem call duck-Install.bat
 :pass_Duck
 
 rem Install Utils...
 if not exist UtilsInstall.bat goto pass_Util
-call UtilsInstall.bat
+rem call UtilsInstall.bat
 :pass_Util
 
 rem Install AdminSet01...

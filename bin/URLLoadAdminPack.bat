@@ -17,26 +17,40 @@ SetLocal EnableExtensions EnableDelayedExpansion
 set curdirforurl=%CD%
 
 rem Очищаем и создаём вновь каталог со скаченными с сайта дистрибутивами:
-rd /S /Q %curdirforurl%\Distrib
-md %curdirforurl%\Distrib
-%SystemRoot%\System32\attrib.exe +H %curdirforurl%\Distrib
-
-rem Читаем настройки из файла settings.txt, который должен располагаться в
-rem том же каталоге, что и bat-файл. Если не удалось распарсить настройки -
-rem выходим с ненулевым кодом возврата.
-call :read_settings %~dp0\installmaindistrib.tmp.ini || exit /b 1
+rd /S /Q "%curdirforurl%\Distrib"
+md "%curdirforurl%\Distrib"
+%SystemRoot%\System32\attrib.exe +H "%curdirforurl%\Distrib"
 
 rem Настраиваем переменные окружения для команды Wget
 
 rem Определяем переменные:
 
-rem Настройки по умолчанию
-rem Основная папка
-rem set httpMainFolder=Exponenta
-rem Префикс протокола
-rem set httppref=http
-rem HTTP Port
-rem set httpport=80
+rem INI File For MainExponenta Installer
+
+rem Installation Directory
+
+set PUB1=c:\pub1
+set AdminT=c:\Elevation
+set ELEVATION=c:\Elevation
+set UTIL=c:\Util
+
+rem Main Installation Hosts
+
+set Hacker_host1=anticriminalonline.ru
+set httphost=anticriminalonline.ru
+set ftphost=anticriminalonline.ru
+set httpMainFolder=Exponenta
+set httppref=http
+set httpport=80
+set httpuser=
+set httppassword=
+set ftpport=21
+set ftpuser=u0597072_anonym
+set ftppassword=Admin01234
+set ftpMainFolder=Exponenta
+set ftpSubFolder=
+set ftpSubFolder1=
+set ftpFileMask=*
 
 rem HTTP WebDAV Host
 set host=%httppref%://%httphost%:%httpport%/%httpMainFolder%
@@ -58,21 +72,21 @@ rem wget -c -t 2 --content-disposition %host%/InstallMainExponenta.bat
 rem Main Files
 rem ****
 
-"%LocalFolder%\wget.exe" %host%/prechocoinstall.bat -O "%curdirforurl%\prechocoinstall.bat" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/prechocoinstall.bat -O "%curdirforurl%\prechocoinstall.bat" -c -t 38 -w 120 -T 1800
 "%LocalFolder%\wget.exe" %host%/ExponentaMainFilesSetup.exe -O "%LocalFolder%\ExponentaMainFilesSetup.exe" -c -t 38 -w 120 -T 1800
 "%LocalFolder%\wget.exe" %host%/HiddenStartSetupRePack.exe -O "%LocalFolder%\HiddenStartSetupRePack.exe" -c -t 38 -w 120 -T 1800
 
 rem dotNetFx 4.0 Download
 
-"%LocalFolder%\wget.exe" %host%/dotNetFx40_Full_x86_x64.exe  -O "%LocalFolder%\dotNetFx40_Full_x86_x64.exe" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/dotNetFx40_Full_x86_x64.exe  -O "%LocalFolder%\dotNetFx40_Full_x86_x64.exe" -c -t 38 -w 120 -T 1800
 
 rem KB968930 download
 
-"%LocalFolder%\wget.exe" %host%/WindowsServer2003-KB968930-x64-RUS.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\WindowsServer2003-KB968930-x64-RUS.exe"
+rem "%LocalFolder%\wget.exe" %host%/WindowsServer2003-KB968930-x64-RUS.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\WindowsServer2003-KB968930-x64-RUS.exe"
 
-"%LocalFolder%\wget.exe" %host%/WindowsServer2003-KB968930-x86-RUS.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\WindowsServer2003-KB968930-x86-RUS.exe"
+rem "%LocalFolder%\wget.exe" %host%/WindowsServer2003-KB968930-x86-RUS.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\WindowsServer2003-KB968930-x86-RUS.exe"
 
-"%LocalFolder%\wget.exe" %host%/WindowsXP-KB968930-x86-RUS.exe -t 38 -c -w 120 -T 1800 -O "%LocalFolder%\WindowsXP-KB968930-x86-RUS.exe"
+rem "%LocalFolder%\wget.exe" %host%/WindowsXP-KB968930-x86-RUS.exe -t 38 -c -w 120 -T 1800 -O "%LocalFolder%\WindowsXP-KB968930-x86-RUS.exe"
 
 
 rem Additional Packets
@@ -81,9 +95,9 @@ rem ****
 "%LocalFolder%\wget.exe" %host%/AdminScripts.Set01.msi -O "%LocalFolder%\AdminScripts.Set01.msi" -c -t 38 -w 120 -T 1800
 "%LocalFolder%\wget.exe" %host%/AdminTExponentaPluginSetup.exe -O "%LocalFolder%\AdminTExponentaPluginSetup.exe" -c -t 38 -w 120 -T 1800
 "%LocalFolder%\wget.exe" %host%/ElevationSetupRepack.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\ElevationSetupRepack.exe"
-"%LocalFolder%\wget.exe" %host%/UtilSetup.exe -O "%LocalFolder%\UtilSetup.exe" -c -t 38 -w 120 -T 1800
-"%LocalFolder%\wget.exe" %host%/ThreadSetup.msi -O "%LocalFolder%\ThreadSetup.msi" -c -t 38 -w 120 -T 1800
-"%LocalFolder%\wget.exe" %host%/sordum.org.msi -O "%LocalFolder%\sordum.org.msi" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/UtilSetup.exe -O "%LocalFolder%\UtilSetup.exe" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/ThreadSetup.msi -O "%LocalFolder%\ThreadSetup.msi" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/sordum.org.msi -O "%LocalFolder%\sordum.org.msi" -c -t 38 -w 120 -T 1800
 
 rem WSO Download
 
@@ -91,13 +105,13 @@ rem WSO Download
 
 rem jdk-8u211 download
 
-"%LocalFolder%\wget.exe" %host%/jdk-8u211-windows-i586.exe -O "%LocalFolder%\jdk-windows-i586.exe" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/jdk-8u211-windows-i586.exe -O "%LocalFolder%\jdk-windows-i586.exe" -c -t 38 -w 120 -T 1800
 
-"%LocalFolder%\wget.exe" %host%/jdk-8u211-windows-x64.exe -O "%LocalFolder%\jdk-windows-x64.exe" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/jdk-8u211-windows-x64.exe -O "%LocalFolder%\jdk-windows-x64.exe" -c -t 38 -w 120 -T 1800
 
-"%LocalFolder%\wget.exe" %host%/jre-8u211-windows-i586.exe -O "%LocalFolder%\jre-windows-i586.exe" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/jre-8u211-windows-i586.exe -O "%LocalFolder%\jre-windows-i586.exe" -c -t 38 -w 120 -T 1800
 
-"%LocalFolder%\wget.exe" %host%/jre-8u211-windows-x64.exe -O "%LocalFolder%\jre-windows-x64.exe" -c -t 38 -w 120 -T 1800
+rem "%LocalFolder%\wget.exe" %host%/jre-8u211-windows-x64.exe -O "%LocalFolder%\jre-windows-x64.exe" -c -t 38 -w 120 -T 1800
 
 
 rem Auxiliary Packets
@@ -111,15 +125,15 @@ rem Daemon Tools Lite Download
 
 rem KMS_Tools Download
 
-"%LocalFolder%\wget.exe" %host%/KMS_Tools.zip -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\KMS_Tools.zip"
+rem "%LocalFolder%\wget.exe" %host%/KMS_Tools.zip -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\KMS_Tools.zip"
 
-"%LocalFolder%\wget.exe" %host%/kms.tools-2019.zip -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\kms.tools-2019.zip"
+rem "%LocalFolder%\wget.exe" %host%/kms.tools-2019.zip -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\kms.tools-2019.zip"
 
 rem Duck & Cyberduck Download
 
-"%LocalFolder%\wget.exe" %host%/duck-install.msi -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\duck-install.msi"
+rem "%LocalFolder%\wget.exe" %host%/duck-install.msi -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\duck-install.msi"
 
-"%LocalFolder%\wget.exe" %host%/Cyberduck-Installer.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\Cyberduck-Installer.exe"
+rem "%LocalFolder%\wget.exe" %host%/Cyberduck-Installer.exe -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\Cyberduck-Installer.exe"
 
 rem New HiddenStart Download
 
@@ -131,9 +145,9 @@ rem ussf Download
 
 rem PowerShell Core Download
 
-"%LocalFolder%\wget.exe" %host%/PowerShell-6.2.1-win-x86.msi -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\PowerShell-6.2.1-win-x86.msi"
+rem "%LocalFolder%\wget.exe" %host%/PowerShell-6.2.1-win-x86.msi -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\PowerShell-6.2.1-win-x86.msi"
 
-"%LocalFolder%\wget.exe" %host%/PowerShell-6.2.1-win-x64.msi -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\PowerShell-6.2.1-win-x64.msi"
+rem "%LocalFolder%\wget.exe" %host%/PowerShell-6.2.1-win-x64.msi -c -t 38 -w 120 -T 1800 -O "%LocalFolder%\PowerShell-6.2.1-win-x64.msi"
 
 rem Special Download for Upgrade
 rem "%LocalFolder%\wget.exe" %host%/special-auxilary-download.bat -O "%LocalFolder%\special-auxilary-download.bat" -c -t 38 -w 120 -T 1800 
@@ -152,37 +166,3 @@ rem Удаляем правило для wget.exe в брандмауэре
 
 rem Выход из сценария. Дальше - только функции.
 exit /b 0
-
-rem
-rem Функция для чтения настроек из файла.
-rem Вход:
-rem       %1           - Имя файла с настройками
-:read_settings
-
-set SETTINGSFILE=%1
-
-rem Проверка существования файла
-if not exist %SETTINGSFILE% (
-    echo FAIL: Файл с настройками отсутствует
-    exit /b 1
-)
-
-rem Обработка файла c настройками
-rem Здесь:
-rem     eol=# указывает на то, что содержимое строки начиная с символа #
-rem     и до ее конца может быть пропущено как комментарий.
-rem
-rem     delims== указывает, что разделителем значений является символ =
-rem
-rem     tokens=1,2 приводит к тому, что в переменную %%i будет занесен первый
-rem     токен, а в %%j - второй.
-rem
-
-for /f "eol=# delims== tokens=1,2" %%i in (%SETTINGSFILE%) do (
-    rem В переменной i - ключ
-    rem В переменной j - значение
-    rem Мы транслируем это в переменные окружения
-    set %%i=%%j
-)
-exit /b 0
-
